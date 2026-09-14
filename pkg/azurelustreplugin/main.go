@@ -32,6 +32,7 @@ var (
 	driverName                   = flag.String("drivername", azurelustre.DefaultDriverName, "name of the driver")
 	enableAzureLustreMockMount   = flag.Bool("enable-azurelustre-mock-mount", false, "Whether enable mock mount(only for testing)")
 	enableAzureLustreMockDynProv = flag.Bool("enable-azurelustre-mock-dyn-prov", false, "Whether enable mock dynamic provisioning(only for testing)")
+	allowUnadvertisedZones       = flag.Bool("allow-unadvertised-zones", false, "Allow an explicitly specified zone when SKU metadata advertises none")
 	workingMountDir              = flag.String("working-mount-dir", "/tmp", "working directory for provisioner to mount lustre filesystems temporarily")
 	removeNotReadyTaint          = flag.Bool("remove-not-ready-taint", true, "remove NotReady taint from node when node is ready")
 
@@ -72,6 +73,7 @@ func handle() error {
 		DriverName:                   *driverName,
 		EnableAzureLustreMockMount:   *enableAzureLustreMockMount,
 		EnableAzureLustreMockDynProv: *enableAzureLustreMockDynProv,
+		AllowUnadvertisedZones:       *allowUnadvertisedZones,
 		WorkingMountDir:              *workingMountDir,
 		RemoveNotReadyTaint:          *removeNotReadyTaint,
 	}
